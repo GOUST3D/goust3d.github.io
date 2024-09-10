@@ -6,14 +6,39 @@
     <link rel="icon" href="%E2%98%B8" type="image/x-icon">
     <title>GOUST3D</title>
     <style>
-        body {
-            background-color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        :root {
+
+            --bg-color: white;
+            --text-color: #333;
+            --accent-color: #00FADD;
+            --menu-hover-color: #00FADD;
+            --footer-bg: #f0f0f0;
+            --footer-hover-bg: #e0e0e0;
+            --social-bg: #f0f0f0;
+            --social-hover-bg: #fa001d;
         }
-        
-       .menu-bar {
+
+        body.dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0; /* Lighter text color for better readability */
+            --accent-color: #FFA500;
+            --menu-hover-color: #FFA500;
+            --footer-bg: #333;
+            --footer-hover-bg: #444;
+            --social-bg: #333;
+            --social-hover-bg: #ffa500;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .menu-bar {
+            color: var(--text-color);
             position: fixed;
             top: 0;
             left: 0;
@@ -26,9 +51,9 @@
             transition: opacity 0.3s ease;
             z-index: 1000;
         }
-        
-       .menu-item {
-            color: #000000;
+
+        .menu-item {
+            color: var(--text-color);
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: color 0.3s ease;
@@ -38,13 +63,13 @@
             display: flex;
             align-items: center;
         }
-        
-       .menu-item:hover,
-       .menu-item.active {
-            color: #00FADD;
+
+        .menu-item:hover,
+        .menu-item.active {
+            color: var(--menu-hover-color);
         }
-        
-       .menu-item::after {
+
+        .menu-item::after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -52,27 +77,27 @@
             transform: translateX(-50%);
             width: 0;
             height: 2px;
-            background-color: #00FADD;
+            background-color: var(--menu-hover-color);
             transition: width 0.3s steps(5), transform 0.3s steps(5);
         }
-        
-       .menu-item:hover::after,
-       .menu-item.active::after {
+
+        .menu-item:hover::after,
+        .menu-item.active::after {
             width: 100%;
             transform: translateX(-50%) scaleX(1.5);
         }
-        
-       .menu-item span {
+
+        .menu-item span {
             opacity: 0;
             transition: opacity 0.3s steps(5);
             margin-left: 5px;
             filter: grayscale(100%);
         }
-        
-       .menu-item:hover span {
+
+        .menu-item:hover span {
             opacity: 1;
         }
-        
+
         /* Responsive font size */
         @media (max-width: 768px) {
             .menu-item {
@@ -99,29 +124,30 @@
                 transform: translateX(-50%) scaleX(1.5);
             }
         }
-        
-       .info-entry {
+
+        .info-entry {
+            font-weight: normal;
             max-width: 800px;
             margin: 80px auto;
             padding: 0 20px;
             text-align: left;
-            color: #666;
+            color: var(--text-color);
             line-height: 2;
             margin-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
         }
-        
-       .info-entry h1 {
+
+        .info-entry h1 {
             font-family: monospace;
-            color: #333;
-            border-bottom: 2px solid #333;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--text-color);
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
-        
-       .info-entry p {
-            color: #666;
+
+        .info-entry p {
+            color: var(--text-color);
             font-size: 16px;
             line-height: 2;
             margin-bottom: 30px;
@@ -133,54 +159,55 @@
         /* Typing Animation */
 
         h1 {
-          font-family: monospace;
-          color: #333;
-          margin-bottom: 20px;
-          display: flex;
-          align-items: center;
+            font-family: monospace;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
         }
 
         h1.typing-text {
-          display: inline-block;
-          min-width: 100%;
-          white-space: nowrap;
-          overflow: hidden;
-          vertical-align: middle;
+            display: inline-block;
+            min-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: middle;
         }
 
         h1.underline-separator {
-          display: inline-block;
-          width: 100%;
-          height: 2px;
-          background-color: #333;
-          margin-left: 10px;
-          vertical-align: middle;
+            display: inline-block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
-       .footer {
-            color: #666;
+        .footer {
+            font-weight: normal;
+            color: var(--text-color);
             padding: 20px;
             margin-top: 40px;
             text-align: center;
         }
 
-       .footer a {
-            color: #888;
+        .footer a {
+            color: var(--text-color);
             text-decoration: none;
             display: inline-block;
             padding: 10px 20px;
-            background-color: #f0f0f0;
+            background-color: var(--footer-bg);
             border-radius: 5px;
             transition: background-color 0.3s ease;
             text-align: center;
         }
 
-       .footer a:hover {
-            background-color: #e0e0e0;
+        .footer a:hover {
+            background-color: var(--footer-hover-bg);
         }
 
         .social a {
-            color: #999;
+            color: var(--text-color);
             font-weight: bold;
             font-size: 140%;
             text-decoration: none;
@@ -188,7 +215,7 @@
             margin-top: 10px;
             margin-left: 10px;
             margin-right: 10px;
-            background-color: #000000;
+            background-color: var(--social-bg);
             border-radius: 23px;
             transition: background-color 0.3s ease;
             text-align: justify;
@@ -197,10 +224,34 @@
         }
 
         .social a:hover {
-            background-color: #fa001d;
+            background-color: var(--social-hover-bg);
         }
 
+        .toggle-dark-mode {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 23px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-dark-mode:hover {
+            background-color: var(--social-hover-bg);
+        }
+
+        .toggle-dark-mode span {
+            margin-left: 5px;
+        }
     </style>
+
 </head>
 <body>
     <div class="menu-bar" id="menuBar">
@@ -231,7 +282,7 @@
         Blender Addons:<br>
         • Suggested "Keyframe Range" option in <b>Animation Layers</b>.<br>
         • Suggested "Manual Keyframes" option in <b>Action Commander</b>.<br>
-        • Reported Many Tweaks in <b>Simple Action Export</b>.<br></small>
+        • Reported Many Tweaks in <b>Simple Action Export.<br></small>
         <!-- Add more content here to make the page scrollable -->
     </div>
 
@@ -305,6 +356,53 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const darkModeToggle = document.getElementById('darkModeToggle');
+
+            // Load dark mode setting from cookies
+            const darkMode = getCookie('darkMode');
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️ Toggle';
+            }
+
+            // Toggle dark mode on button click
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                const isDarkMode = body.classList.contains('dark-mode');
+                darkModeToggle.textContent = isDarkMode ? '☀️ Toggle' : '🌙 Toggle';
+                setCookie('darkMode', isDarkMode ? 'enabled' : 'disabled', 365);
+            });
+
+            // Function to set cookie
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = "expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            }
+
+            // Function to get cookie
+            function getCookie(name) {
+                const cname = name + "=";
+                const decodedCookie = decodeURIComponent(document.cookie);
+                const ca = decodedCookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(cname) === 0) {
+                        return c.substring(cname.length, c.length);
+                    }
+                }
+                return "";
+            }
+        });
+    </script>
+
     <div class="footer">
             © 2024 Gibson Weitzel  🔸  Made with AI<br>
             <div class="social">
@@ -313,5 +411,6 @@
             </div>
             <p><a href="https://www.paypal.com/paypalme/GOUSTANIMATIONS">Donate</a></p>
     </div>
+    <button class="toggle-dark-mode" id="darkModeToggle">🌙<span>Toggle</span></button>
 </body>
 </html>
