@@ -7,7 +7,7 @@
     <title>GOUST3D</title>
     <style>
         :root {
-
+            /* Existing CSS variables */
             --bg-color: white;
             --text-color: #333;
             --accent-color: #00FADD;
@@ -18,9 +18,10 @@
             --social-hover-bg: #fa001d;
         }
 
+        /* Dark mode variables */
         body.dark-mode {
             --bg-color: #1a1a1a;
-            --text-color: #e0e0e0; /* Lighter text color for better readability */
+            --text-color: #e0e0e0;
             --accent-color: #FFA500;
             --menu-hover-color: #FFA500;
             --footer-bg: #333;
@@ -29,8 +30,13 @@
             --social-hover-bg: #ffa500;
         }
 
-        body {
+        /* Add this CSS rule for the Twitter link in light mode */
+        body:not(.dark-mode) .social a[href="https://x.com/goust3d"]:hover {
+            background-color: #1DA1F2; /* Twitter blue */
+        }
 
+        /* The rest of your CSS */
+        body {
             font-family: Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
@@ -153,7 +159,7 @@
             margin-bottom: 30px;
             padding-left: 20px;
             padding-right: 20px;
-            text-indent: 40px;
+            text-indent: 20px;
         }
 
         /* Typing Animation */
@@ -264,25 +270,24 @@
         <h1><span>&ZeroWidthSpace;</span><span class="typing-text">Gibson Weitzel 🔸 3D Artist</span> <span class="underline-separator"></span></h1>
         <div class="divider"></div>
         <p>Humboldt County CA, Age 24 <br>
-        Contracted "Viewmodel" Animator and aspiring 3D Artist. ⸺ With professional in-studio experience at <b>Microsoft 343 Industries, </b> in Redmond WA, at age 19.
-        <br>
-        <br>
-        High School Graduate ⸺ No higher education.<br>
-        Completely "self-taught" via online resources.
+        Contracted "Viewmodel" Animator and aspiring 3D Artist. ⸺ With professional in-studio experience at <b>Microsoft 343 Industries, </b>as a <b>Junior</b> in Redmond WA, at age 19.
         <br>
         <br>
         Introduced to Autodesk Maya at age 16, while working detailing Used Cars at a Dealership, to which I decided to pursue Animation as a Career path.
-        <br>
-        <br>
+        <br><small>
+        <br><small>
+        High School Graduate ⸺ No higher education.<br>
+        Completely "self-taught" via online resources.</small>
+        <br><br>
         • Python Programming<br>
         • AI Utilization / Prompt Engineering<br>
-        • Note Taking</p>
+        • Note Taking</p></small>
 
-        <h2>Other Accomplishments</h2><small>
+        <h2>Other Accomplishments</h2><small><small>
         Blender Addons:<br>
         • Suggested "Keyframe Range" option in <b>Animation Layers</b>.<br>
         • Suggested "Manual Keyframes" option in <b>Action Commander</b>.<br>
-        • Reported Many Tweaks in <b>Simple Action Export.<br></small>
+        • Reported Many Tweaks in <b>Simple Action Export.<br></small></small>
         <!-- Add more content here to make the page scrollable -->
     </div>
 
