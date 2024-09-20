@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_dark.png" />
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_light.png" />
     <link rel="icon" type="image/png" href="./favicon.png"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +23,8 @@
 
         /* Dark mode variables */
         body.dark-mode {
-            background-image: url('https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_dark.png');
-            -webkit-transition: background-image 0.2s ease-in-out;
-            transition: background-image 0.2s ease-in-out;
+            -webkit-transition: background-color 0.3s ease-in-out;
+            /*background-image: url('https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_dark.png');*/
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
             --accent-color: #FFA500;
@@ -39,14 +40,13 @@
             background-color: #1DA1F2; /* Twitter blue */
         }
 
-        /* The rest of your CSS */
+
         body {
+            -webkit-transition: background-color 0.3s ease-in-out;
+            /*background-image: url('https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_light.png');*/
             font-family: Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            background-image: url('https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_light.png');
-            -webkit-transition: background-image 0.2s ease-in-out;
-            transition: background-image 0.2s ease-in-out;
             background-size: cover;
             background-position: center;
         }
@@ -62,7 +62,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease-in-out;
             z-index: 1000;
         }
 
@@ -70,7 +70,7 @@
             color: var(--text-color);
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease-in-out;
             text-decoration: none;
             position: relative;
             font-size: 1.2rem;
