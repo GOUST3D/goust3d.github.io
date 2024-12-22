@@ -202,8 +202,12 @@
             opacity: 1;
         }
 
-        /* Responsive font size */
+
         @media (max-width: 768px) {
+            iframe {
+                width: 90%; /* Scale down for smaller screens */
+            }
+
             body {
                 padding: 0px;
             }
@@ -215,7 +219,7 @@
             }
 
             body military {
-                font-size: 1.4rem; /* Adjust to your preferred smaller font size */
+                font-size: 1.3rem; /* Adjust to your preferred smaller font size */
             }
 
             .menu-item {
@@ -379,7 +383,7 @@
 
         .center {
             padding-top: 60px;
-            padding-bottom: 40px;
+            padding-bottom: 100px;
             text-align: center;
         }
     </style>
