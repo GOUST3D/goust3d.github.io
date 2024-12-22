@@ -30,7 +30,7 @@
             /* Existing CSS variables */
             --bg-color: white;
             --text-color: #333;
-            --accent-color: #00FADD;
+            --accent-color: #FFBE3F;
             --menu-hover-color: #FFBE3F;
             --footer-bg: #cbcbcb;
             --footer-hover-bg: #3e9c35;
@@ -44,7 +44,7 @@
             /*background-image: url('https://raw.githubusercontent.com/GOUST3D/goust3d.github.io/main/girihbackground_dark.png');*/
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
-            --accent-color: #FFA500;
+            --accent-color: #FFBE3F;
             --menu-hover-color: #FFBE3F;
             --footer-bg: #333;
             --footer-hover-bg: #3e9c35;
@@ -86,7 +86,6 @@
             color: var(--text-color);
             background-size: cover;
             background-position: center;
-            font-size: 1.0rem;
             padding: 20px;
         }
 
@@ -205,8 +204,19 @@
 
         /* Responsive font size */
         @media (max-width: 768px) {
-            .menu-item {
+            .info-entry p {
                 font-size: 1rem;
+            }
+            .info-entry span {
+                font-size: 70%;
+            }
+
+            body military {
+                font-size: 1.5rem; /* Adjust to your preferred smaller font size */
+            }
+
+            .menu-item {
+                font-size: 1.3rem;
                 text-shadow: 0 2px 14px rgba(0, 255, 173, 0.5);
                 padding-top: 25px;
             }
@@ -219,7 +229,7 @@
                 transform: translateX(-50%);
                 width: 0;
                 height: 2px;
-                background-color: rgba(0, 255, 173, 0.5);
+                background-color: --social-hover-bg;
                 transition: width 0.3s steps(5), transform 0.3s steps(5);
             }
 
