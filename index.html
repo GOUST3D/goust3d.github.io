@@ -524,6 +524,30 @@
             const body = document.body;
             const darkModeToggle = document.getElementById('darkModeToggle');
 
+            // Create the popup bubble
+            const popup = document.createElement('div');
+            popup.className = 'popup-bubble';
+            popup.textContent = 'Dark mode';
+            document.body.appendChild(popup);
+
+            // Position the popup near the toggle button
+            const positionPopup = () => {
+                const toggleRect = darkModeToggle.getBoundingClientRect();
+                popup.style.left = `${toggleRect.left + window.scrollX - 60}px`;  // Adjusted to move left
+                popup.style.top = `${toggleRect.top + window.scrollY - 60}px`;
+            };
+
+            // Show popup on page load
+            const showPopupOnLoad = () => {
+                positionPopup();
+                popup.style.opacity = '1';
+                popup.style.visibility = 'visible';
+                setTimeout(() => {
+                    popup.style.opacity = '0';
+                    popup.style.visibility = 'hidden';
+                }, 2000);
+            };
+
             // Load dark mode setting from cookies
             const darkMode = getCookie('darkMode');
             if (darkMode === 'enabled') {
@@ -563,7 +587,34 @@
                 }
                 return "";
             }
+
+            // Reposition popup on window resize
+            window.addEventListener('resize', positionPopup);
+
+            // Trigger the popup on page load
+            showPopupOnLoad();
         });
+
+        /* CSS styles */
+        const style = document.createElement('style');
+        style.textContent = `
+            .popup-bubble {
+                position: absolute;
+                background-color: red;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.5s ease, visibility 0.5s ease;
+                z-index: 1000;
+            }
+        `;
+        document.head.appendChild(style);
+
     </script>
 
     <div class="footer">
